@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+    <title>Procrastination Timer</title>
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
-
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <nav class="top-nav">
+      <h1>Procrastination Timer</h1>
+    </nav>
+    <main class="task">
+      <h3 class="task-header">Where did it all go wrong?</h3>
+      <form class="task-form">
+        <section class="task-type">
+          <button>Existential Dread</button>
+          <button>Sloth</button>
+          <button>Degeneracy</button>
+        </section>
+        <input
+          name="intd"
+          type="text"
+          placeholder="What were you supposed to do?"
+          class="task-input-intd"
+        >
+        <input
+          name="task"
+          type="text"
+          placeholder="What are you actually going to do?"
+          class="task-input-task"
+        >
+        <input 
+          name="minutes" 
+          type="text" 
+          placeholder="Minutes"
+          class="task-input-minutes"
+        >
+        <input 
+          name="seconds" 
+          type="text" 
+          placeholder="Seconds"
+          class="task-input-seconds"
+        >
+        <button class="task-submit">Submit</button>
+      </form>
+    </main>
+    <aside class="tasklist">
+      <h3>Past Failures</h3>
+      <section class="task-holder">
+      
+      </section>
+    </aside>
   </body>
 </html>

@@ -1,6 +1,114 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$primary-background: #2B2733;
+$secondary-background: #46424D;
 
+html,
 body {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
   background-color: $primary-background;
+  display: flex;
+  flex-flow: row wrap;
 }
+
+// Top Nav
+.top-nav {
+  height: 8%;
+  width: 100%;
+  background-color: $secondary-background;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  h1 {
+    color: white;
+    font-size: 1.3em;
+  }
+}
+
+// Task form 
+.task {
+  height: 92%;
+  width: 69%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid $secondary-background;
+  
+  h3 {
+    align-self: flex-start;
+    margin-left: 5%;
+    color: white;
+  }
+}
+
+.task-form {
+  height: 80%;
+  width: 90%;
+  background-color: $secondary-background;
+  display: grid;
+  grid-template-rows: repeat(5, 20%);
+  grid-template-columns: 5% 30% 30% 30% 5%;
+  grid-template-areas:
+  '. type type type .'
+  '. intd intd intd .'
+  '. task task task .'
+  '. minutes . seconds .'
+  '. . . submit .';
+
+  input {
+    height: 40%;
+  }
+}
+
+.task-input-intd {
+  grid-area: intd;
+}
+
+.task-input-task {
+  grid-area: task;
+}
+
+.task-input-minutes {
+  grid-area: minutes;
+}
+
+.task-input-seconds {
+  grid-area: seconds;
+}
+
+.task-submit {
+  grid-area: submit;
+  height: 60%;
+}
+
+.task-type {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  grid-area: type;
+
+  button {
+    height: 60%;
+    width: 30%;
+  }
+}
+
+
+.tasklist {
+  height: 92%;
+  width: 30%;
+
+  h3 {
+    margin-left: 5%;
+    color: white;
+  }
+}
+
+

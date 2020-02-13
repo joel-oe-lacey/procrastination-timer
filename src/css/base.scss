@@ -1,6 +1,6 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: #2B2733;
-$secondary-background: #46424D;
+@import 'variables';
+
 
 html,
 body {
@@ -61,6 +61,11 @@ body {
 
   input {
     height: 40%;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 1.1em;
+    border-bottom: 1px solid white;
   }
 }
 
@@ -82,7 +87,8 @@ body {
 
 .task-submit {
   grid-area: submit;
-  height: 60%;
+  height: 40%;
+  @include roundButton();
 }
 
 .task-type {
@@ -97,6 +103,11 @@ body {
   button {
     height: 60%;
     width: 30%;
+    background: transparent;
+    font-size: 1.1em;
+    color: white;
+    border: 1px solid white;
+    @include roundButton();
   }
 }
 

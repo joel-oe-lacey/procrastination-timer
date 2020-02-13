@@ -4,5 +4,6 @@ class Timer {
     this.seconds = seconds;
     this.currTime = 0;
   }
-
 }
+
+export default Timer;

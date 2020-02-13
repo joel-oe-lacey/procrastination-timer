@@ -4,3 +4,5 @@ class TaskContainer {
   }
 
 }
+
+export default TaskContainer;

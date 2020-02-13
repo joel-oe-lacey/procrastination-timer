@@ -111,7 +111,20 @@ body {
   }
 }
 
+//Timer
+.task-timer {
+  height: 92%;
+  width: 69%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid $secondary-background;
+}
 
+
+
+//Task list
 .tasklist {
   height: 92%;
   width: 30%;
@@ -122,4 +135,7 @@ body {
   }
 }
 
+.hide {
+  display: none;
+}
 

@@ -1,12 +1,42 @@
 import $ from 'jquery';
-import Tasks from '../classes/Task.js';
+import Task from '../classes/Task.js';
 import TaskContainer from '../classes/TaskContainer.js';
-import Timer from '../classes/Timer.js';
-//let sampleTasks
-let TaskCont = new TaskContainer();
-let selected = [];
+const sampleTaskData = [
+  {
+    id: 1,
+    intd: 'work on this project',
+    task: '',
+    minutes: '180',
+    seconds: '0'
+  },
+  {
+    id: 2,
+    intd: 'pay mortgage',
+    task: 'put more mustard stains on this shirt',
+    minutes: '4',
+    seconds: '30'
+  },
+  {
+    id: 3,
+    intd: 'clean the windows',
+    task: 'fight off police trying to evict me with a broomstick',
+    minutes: '180',
+    seconds: '0'
+  }
+]
+    
+const wordsOfShame = [
+  'Unbelievable, I\'m so dissapointed',
+  'What would your mother think?',
+  'God is watching.',
+  'Why do today, what you could completely ignore?',
+  'I hate you.',
+  'Your high school teacher was right',
+  'It\'s never too late to give up'
+]
+const sampleTasks = sampleTaskData.map(task => new Task(task))
+let TaskCont = new TaskContainer(sampleTasks);
 
-//need to capture inputs from form
 const captureTask = e => {
   e.preventDefault();
   const id = Date.now();
@@ -14,40 +44,49 @@ const captureTask = e => {
   const task = $('.task-input-task').val();
   const minutes = $('.task-input-minutes').val();
   const seconds = $('.task-input-seconds').val();
-  TaskCont.tasks.push({id, intd, task, minutes, seconds})
+
+  TaskCont.tasks.unshift(new Task(id, intd, task, minutes, seconds));
   showTimer();
 }
 
 const showTimer = () => {
+  $('.timer-intd').text(`I was going to: ${TaskCont.tasks[0].intd}`);
+  $('.timer-task').text(`But then I: ${TaskCont.tasks[0].task}`);
   $('.task').toggleClass('hide');
   $('.task-timer').toggleClass('hide');
 }
 
-//instance a task class
+const showShameMsg = setInterval(() => {
+  $('.timer-shame').text(wordsOfShame[0]);  
+  wordsOfShame.push(wordsOfShame.splice(0, 1)[0]);
+}, 5000)
 
-//push to task container 
+const updateTime = (totalTime) => {
+  displayTime(totalTime)
+  if (totalTime >= 1) {
+    setTimeout(() => {
+      updateTime(totalTime - 1)
+    }   
+    , 1000);
+  } else {
+    clearInterval(showShameMsg)
+    return 0 
+  }
+}
 
-//use task method to return html
+const displayTime = (time) => {  
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
 
-//map over all in task container and call that method, put output result on innerHTML of section
+  $('.timer-time').text(`${minutes} : ${seconds}`)
+}
 
-//use task class to show timer section
-
-//also create a timer. 
-//update dom based on current value of timer? 
-
-
-//store in local storage? 
-//start task container with some completed tasks to start?
-
-
-//event listeners 
 $('.task-submit').on('click', captureTask)
-// $('.task-type').children.on('click', () => {
-//     //want to to selected, if has a value, replace it
-//     //that value should display color 
-//         //how to conditional render 
-//         //just re-render the whole section 
+$('.timer-start').on('click', () => {
+  updateTime(TaskCont.tasks[0].calcTime())
+})
 
-    
-// })
+const showTasks = () => {
+  console.log(TaskCont.showTasks())
+}
+showTasks()

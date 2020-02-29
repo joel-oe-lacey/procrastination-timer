@@ -1,13 +1,16 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 @import 'variables';
 
+* {
+  margin: 0px;
+  padding: 0px;
+}
 
 html,
 body {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  margin: 0;
   background-color: $primary-background;
   display: flex;
   flex-flow: row wrap;
@@ -36,6 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   border: 1px solid $secondary-background;
   
   h3 {
@@ -119,10 +123,19 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
   border-right: 1px solid $secondary-background;
+
+  * {
+    margin: 3%;
+    font-size: 1.4em;
+  }
+
+  button: {
+    height: 10%;
+    width: 75%;
+  }
 }
-
-
 
 //Task list
 .tasklist {
@@ -133,6 +146,28 @@ body {
     margin-left: 5%;
     color: white;
   }
+}
+
+.task-holder {
+  // padding-top: 4%;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.task-card {
+  height: 20%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  background-color: $secondary-background;
+  padding: 2%;
 }
 
 .hide {

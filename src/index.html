@@ -8,7 +8,7 @@
       <h1>Procrastination Timer</h1>
     </nav>
     <main class="task">
-      <h3 class="task-header">Where did it all go wrong?</h3>
+      <h3 class="task-header">To do: make buttons work.</h3>
       <form class="task-form">
         <section class="task-type">
           <button>Existential Dread</button>
@@ -18,13 +18,13 @@
         <input
           name="intd"
           type="text"
-          placeholder="What were you supposed to do?"
+          placeholder="I was supposed to..."
           class="task-input-intd"
         >
         <input
           name="task"
           type="text"
-          placeholder="What are you actually going to do?"
+          placeholder="But instead I..."
           class="task-input-task"
         >
         <input 
@@ -42,10 +42,31 @@
         <button class="task-submit">Submit</button>
       </form>
     </main>
+    <section class="task-timer hide">
+      <h2 class="timer-shame">How could you do this?</h2>
+      <h3 class="timer-intd"></h3>
+      <h3 class="timer-task"></h3>
+      <h1 class="timer-time">00:00</h1>
+      <button class="timer-start">Start</button>
+    </section>
     <aside class="tasklist">
       <h3>Past Failures</h3>
       <section class="task-holder">
-      
+        <section class="task-card">
+          <h4>I was going to work on this project</h4>
+          <p>For 180 Minutes</p>
+          <p>But then remembered I hate jQuery</p>
+        </section>
+        <section class="task-card">
+          <h4>I was going to pay mortgage</h4>
+          <p>For 4 Minutes</p>
+          <p>But then I put more mustard stains on this shirt</p>
+        </section>
+        <section class="task-card">
+          <h4>I was going to clean the windows</h4>
+          <p>For 25 Minutes</p>
+          <p>But then I fought off police trying to evict me with a broomstick</p>
+        </section>
       </section>
     </aside>
   </body>

@@ -1,0 +1,9 @@
+$primary-background: #2B2733;
+$secondary-background: #46424D;
+
+@mixin roundButton() {
+  border-bottom-right-radius: 5% 35%;
+  border-top-right-radius: 5% 35%;
+  border-bottom-left-radius: 5% 35%;
+  border-top-left-radius: 5% 35%;
+}
